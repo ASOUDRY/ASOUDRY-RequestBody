@@ -1,12 +1,9 @@
-
-
 import java.util.Objects;
 
 public class Song {
     
     private String songName;
     private String artistName;
-
 
     public Song() {
     }

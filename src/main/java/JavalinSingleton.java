@@ -23,6 +23,18 @@ public class JavalinSingleton {
         app.post("/echo", ctx -> {
             
             //implement logic here
+
+    String jsonString = ctx.body();
+
+    //utilize jackson to convert the json string to a user object
+    // ObjectMapper om = new ObjectMapper();
+    // User user = om.readValue(jsonString, User.class);
+    
+    //now we can use the 'user' response body as a Java object in whatever way we see fit.
+        
+    //eg: return the user as the response body, but also have Javalin convert it to JSON  
+    ctx.json(jsonString); 
+
                 
         });
 
@@ -36,6 +48,19 @@ public class JavalinSingleton {
         app.post("/changeartisttobeatles", ctx -> {
 
             //implement logic here
+
+            String jsonString = ctx.body();
+
+            //utilize jackson to convert the json string to a user object
+            // ObjectMapper om = new ObjectMapper();
+             Song song = om.readValue(jsonString, Song.class);
+
+             song.setArtistName("Beatles");
+            
+            //now we can use the 'user' response body as a Java object in whatever way we see fit.
+                
+            //eg: return the user as the response body, but also have Javalin convert it to JSON  
+            ctx.json(song); 
                
         });
 
